@@ -107,4 +107,5 @@ void parse_program(void) {
     expect(TOKEN_SEMICOLON);
 
     printf("    ret\n");
+    printf("section .note.GNU-stack noalloc noexec nowrite progbits\n");
 }
