@@ -1,0 +1,9 @@
+gcc compiler.c -o compiler
+nasm -f elf64 out.asm -o out.o
+gcc out.o -o out
+./out
+echo $?
+
+make
+make run
+make clean

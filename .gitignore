@@ -1,0 +1,49 @@
+# Build output
+compiler
+*.exe
+*.out
+*.o
+*.obj
+*.asm
+
+# Debug / profiling
+*.dSYM/
+*.pdb
+*.ilk
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# VS Code
+.vscode/
+
+# CLion / JetBrains
+.idea/
+cmake-build-*/
+
+# Visual Studio
+.vs/
+*.vcxproj.user
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Linux
+.cache/
+
+# Generated executables
+out
+a.out
+
+# Optional test/build folders
+build/
+dist/
+bin/
