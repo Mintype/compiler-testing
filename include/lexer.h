@@ -8,6 +8,8 @@ typedef enum {
     TOKEN_MINUS,
     TOKEN_TIMES,
     TOKEN_DIVIDES,
+    TOKEN_LPAREN,
+    TOKEN_RPAREN,
     TOKEN_SEMICOLON,
     TOKEN_EOF,
 } TokenType;

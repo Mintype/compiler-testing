@@ -45,6 +45,10 @@ int main(int argc, char **argv) {
             printf("TOKEN_TIMES\n");
         else if (tok.type == TOKEN_DIVIDES)
             printf("TOKEN_DIVIDES\n");
+        else if (tok.type == TOKEN_LPAREN)
+            printf("TOKEN_LPAREN\n");
+        else if (tok.type == TOKEN_RPAREN)
+            printf("TOKEN_RPAREN\n");
         else if (tok.type == TOKEN_SEMICOLON)
             printf("TOKEN_SEMICOLON\n");
     }

@@ -50,6 +50,16 @@ Token next_token(void) {
         return (Token){TOKEN_DIVIDES, 0};
     }
 
+    if (src[pos] == '(') {
+    pos++;
+    return (Token){TOKEN_LPAREN, 0};
+    }
+
+    if (src[pos] == ')') {
+        pos++;
+        return (Token){TOKEN_RPAREN, 0};
+    }
+
     if (src[pos] == ';') {
         pos++;
         return (Token){TOKEN_SEMICOLON, 0};
