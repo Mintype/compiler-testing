@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lexer.h"
+#include "parser.h"
 
 char *read_file(const char *path) {
     FILE *file = fopen(path, "rb");
@@ -31,27 +32,29 @@ int main(int argc, char **argv) {
 
     lexer_init(source);
 
-    Token tok;
-    while ((tok = next_token()).type != TOKEN_EOF) {
-        if (tok.type == TOKEN_RETURN)
-            printf("TOKEN_RETURN\n");
-        else if (tok.type == TOKEN_NUMBER)
-            printf("TOKEN_NUMBER(%d)\n", tok.value);
-        else if (tok.type == TOKEN_PLUS)
-            printf("TOKEN_PLUS\n");
-        else if (tok.type == TOKEN_MINUS)
-            printf("TOKEN_MINUS\n");
-        else if (tok.type == TOKEN_TIMES)
-            printf("TOKEN_TIMES\n");
-        else if (tok.type == TOKEN_DIVIDES)
-            printf("TOKEN_DIVIDES\n");
-        else if (tok.type == TOKEN_LPAREN)
-            printf("TOKEN_LPAREN\n");
-        else if (tok.type == TOKEN_RPAREN)
-            printf("TOKEN_RPAREN\n");
-        else if (tok.type == TOKEN_SEMICOLON)
-            printf("TOKEN_SEMICOLON\n");
-    }
+    // Token tok;
+    // while ((tok = next_token()).type != TOKEN_EOF) {
+    //     if (tok.type == TOKEN_RETURN)
+    //         printf("TOKEN_RETURN\n");
+    //     else if (tok.type == TOKEN_NUMBER)
+    //         printf("TOKEN_NUMBER(%d)\n", tok.value);
+    //     else if (tok.type == TOKEN_PLUS)
+    //         printf("TOKEN_PLUS\n");
+    //     else if (tok.type == TOKEN_MINUS)
+    //         printf("TOKEN_MINUS\n");
+    //     else if (tok.type == TOKEN_TIMES)
+    //         printf("TOKEN_TIMES\n");
+    //     else if (tok.type == TOKEN_DIVIDES)
+    //         printf("TOKEN_DIVIDES\n");
+    //     else if (tok.type == TOKEN_LPAREN)
+    //         printf("TOKEN_LPAREN\n");
+    //     else if (tok.type == TOKEN_RPAREN)
+    //         printf("TOKEN_RPAREN\n");
+    //     else if (tok.type == TOKEN_SEMICOLON)
+    //         printf("TOKEN_SEMICOLON\n");
+    // }
+
+    parse_program();
 
     free(source);
     return 0;
