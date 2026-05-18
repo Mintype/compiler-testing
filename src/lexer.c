@@ -22,48 +22,71 @@ Token next_token(void) {
             pos++;
         }
 
-        return (Token){TOKEN_NUMBER, value};
+        return (Token){TOKEN_NUMBER, value, ""};
     }
 
-    if (strncmp(&src[pos], "return", 6) == 0) {
-        pos += 6;
-        return (Token){TOKEN_RETURN, 0};
+    if (isalpha(src[pos]) || src[pos] == '_') {
+        char text[64];
+        int len = 0;
+
+        while (isalnum(src[pos]) || src[pos] == '_') {
+            if (len < 63)
+                text[len++] = src[pos];
+            pos++;
+        }
+
+        text[len] = '\0';
+
+        if (strcmp(text, "return") == 0)
+            return (Token){TOKEN_RETURN, 0, ""};
+
+        if (strcmp(text, "let") == 0)
+            return (Token){TOKEN_LET, 0, ""};
+
+        Token tok = {TOKEN_IDENTIFIER, 0, ""};
+        strcpy(tok.text, text);
+        return tok;
+    }
+
+    if (src[pos] == '=') {
+        pos++;
+        return (Token){TOKEN_EQUALS, 0, ""};
     }
 
     if (src[pos] == '+') {
         pos++;
-        return (Token){TOKEN_PLUS, 0};
+        return (Token){TOKEN_PLUS, 0, ""};
     }
 
     if (src[pos] == '-') {
         pos++;
-        return (Token){TOKEN_MINUS, 0};
+        return (Token){TOKEN_MINUS, 0, ""};
     }
 
     if (src[pos] == '*') {
         pos++;
-        return (Token){TOKEN_TIMES, 0};
+        return (Token){TOKEN_TIMES, 0, ""};
     }
 
     if (src[pos] == '/') {
         pos++;
-        return (Token){TOKEN_DIVIDES, 0};
+        return (Token){TOKEN_DIVIDES, 0, ""};
     }
 
     if (src[pos] == '(') {
     pos++;
-    return (Token){TOKEN_LPAREN, 0};
+    return (Token){TOKEN_LPAREN, 0, ""};
     }
 
     if (src[pos] == ')') {
         pos++;
-        return (Token){TOKEN_RPAREN, 0};
+        return (Token){TOKEN_RPAREN, 0, ""};
     }
 
     if (src[pos] == ';') {
         pos++;
-        return (Token){TOKEN_SEMICOLON, 0};
+        return (Token){TOKEN_SEMICOLON, 0, ""};
     }
 
-    return (Token){TOKEN_EOF, 0};
+    return (Token){TOKEN_EOF, 0, ""};
 }
