@@ -2,19 +2,25 @@
 #define LEXER_H
 
 typedef enum {
-    TOKEN_RETURN,
-    TOKEN_NUMBER,
-    TOKEN_PLUS,
-    TOKEN_MINUS,
-    TOKEN_TIMES,
-    TOKEN_DIVIDES,
-    TOKEN_LPAREN,
-    TOKEN_RPAREN,
-    TOKEN_LET,
-    TOKEN_IDENTIFIER,
-    TOKEN_EQUALS,
-    TOKEN_SEMICOLON,
-    TOKEN_EOF,
+    TOKEN_RETURN,       // return
+    TOKEN_NUMBER,       // a number
+    TOKEN_PLUS,         // +
+    TOKEN_MINUS,        // -
+    TOKEN_TIMES,        // *
+    TOKEN_DIVIDES,      // /
+    TOKEN_LPAREN,       // (
+    TOKEN_RPAREN,       // )
+    TOKEN_LET,          // let
+    TOKEN_IDENTIFIER,   // variable name
+    TOKEN_EQUALS,       // =
+    TOKEN_EQEQ,         // ==
+    TOKEN_NEQ,          // !=
+    TOKEN_LT,           // <
+    TOKEN_GT,           // >
+    TOKEN_LTEQ,         // <=
+    TOKEN_GTEQ,         // >=
+    TOKEN_SEMICOLON,    // ;
+    TOKEN_EOF,          // end of file
 } TokenType;
 
 typedef struct {

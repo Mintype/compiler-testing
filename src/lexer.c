@@ -48,6 +48,42 @@ Token next_token(void) {
         return tok;
     }
 
+    // equal equal (==)
+    if (src[pos] == '=' && src[pos + 1] == '=') {
+        pos += 2;
+        return (Token){TOKEN_EQEQ, 0, ""};
+    }
+
+    // not equal (!=)
+    if (src[pos] == '!' && src[pos + 1] == '=') {
+        pos += 2;
+        return (Token){TOKEN_NEQ, 0, ""};
+    }
+
+    // less than
+    if (src[pos] == '=') {
+        pos++;
+        return (Token){TOKEN_LT, 0, ""};
+    }
+
+    // greater than
+    if (src[pos] == '=') {
+        pos++;
+        return (Token){TOKEN_GT, 0, ""};
+    }
+
+    // less than or equal (==)
+    if (src[pos] == '<' && src[pos + 1] == '=') {
+        pos += 2;
+        return (Token){TOKEN_LTEQ, 0, ""};
+    }
+
+    // greater than or equal (==)
+    if (src[pos] == '>' && src[pos + 1] == '=') {
+        pos += 2;
+        return (Token){TOKEN_GTEQ, 0, ""};
+    }
+
     if (src[pos] == '=') {
         pos++;
         return (Token){TOKEN_EQUALS, 0, ""};
@@ -74,8 +110,8 @@ Token next_token(void) {
     }
 
     if (src[pos] == '(') {
-    pos++;
-    return (Token){TOKEN_LPAREN, 0, ""};
+        pos++;
+        return (Token){TOKEN_LPAREN, 0, ""};
     }
 
     if (src[pos] == ')') {
